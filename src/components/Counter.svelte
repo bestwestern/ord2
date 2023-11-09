@@ -3,6 +3,7 @@
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import { createClient } from "@supabase/supabase-js";
+	import {onMount} from 'svelte';
 	const supabaseUrl = "https://upabdmzybbgsnbonhgmc.supabase.co";
   const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVwYWJkbXp5YmJnc25ib25oZ21jIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODExMjg1NTMsImV4cCI6MTk5NjcwNDU1M30.5TeDInNIPfxKeE_KG4GcUEznh4i9wbKjUek935JSq6Y";
@@ -10,14 +11,15 @@
 	"https://upabdmzybbgsnbonhgmc.supabase.co",
 	supabaseKey
 	);
+	let words=[];
 	onMount(async () => {
 		let { data: products, error } = await supabase
 		.from("products")
 		.select("*")
 		//.eq("id", productid);
+		words=data;
 	});
 	''
-  console.log(products);
 	const [send, receive] = crossfade({
 		fallback(node, params) {
 			const style = getComputedStyle(node);
