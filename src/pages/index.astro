@@ -3,6 +3,7 @@
 import Counter from '../components/Counter.svelte';
 import Header from '../components/Header.astro';
 import { signal } from '@preact/signals';
+
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
@@ -27,7 +28,7 @@ import { signal } from '@preact/signals';
 	<body>
 		<Header />
 		<main>
-			<Counter client:visible>
+			<Counter client:visible words="">
 				<h1>Hello, Svelte!</h1>
 			</Counter>
 		</main>
