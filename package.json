@@ -14,7 +14,7 @@
     "@astrojs/svelte": "^4.0.3",
     "@supabase/supabase-js": "2.38.4",
     "astro": "^3.4.4",
-    "@preact/signals": "^1.2.1",
+    "nanostores":"0.9.5",
     "svelte": "^4.2.0"
   }
 }

@@ -2,9 +2,7 @@
 // Component Imports
 import Counter from '../components/Counter.svelte';
 import Header from '../components/Header.astro';
-import { signal } from '@preact/signals';
-
-const words=signal(-1);
+import { atom } from 'nanostores';
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---

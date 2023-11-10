@@ -1,4 +1,5 @@
 <script>
+	export let test;
 import { createClient } from "@supabase/supabase-js";
 	import {onMount} from 'svelte';
 	const supabaseUrl = "https://upabdmzybbgsnbonhgmc.supabase.co";
@@ -20,4 +21,4 @@ import { createClient } from "@supabase/supabase-js";
 </script>
 
 
-<h2>info</h2>
+<h2>{test}</h2>
