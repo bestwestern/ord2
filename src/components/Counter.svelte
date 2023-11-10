@@ -2,7 +2,7 @@
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-	
+	import {words} from './Store';
 	''
 	const [send, receive] = crossfade({
 		fallback(node, params) {
@@ -19,7 +19,7 @@
 			};
 		}
 	});
-
+console.log(words)
 	let todos = [
 		{ id: 1, done: false, description: 'write some docs' },
 		{ id: 2, done: false, description: 'start writing JSConf talk' },

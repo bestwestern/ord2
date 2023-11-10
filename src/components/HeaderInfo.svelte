@@ -1,5 +1,5 @@
 <script>
-	export let test;
+	import {words} from './Store';
 import { createClient } from "@supabase/supabase-js";
 	import {onMount} from 'svelte';
 	const supabaseUrl = "https://upabdmzybbgsnbonhgmc.supabase.co";
@@ -9,16 +9,15 @@ import { createClient } from "@supabase/supabase-js";
 	"https://upabdmzybbgsnbonhgmc.supabase.co",
 	supabaseKey
 	);
-	let words=[];
 	onMount(async () => {
 		let { data, error } = await supabase
 		.from("ord")
 		.select("*")
 		//.eq("id", productid);
-		words=data;
-        console.log(data)
+		words.set(data);
+        
 	});
 </script>
 
 
-<h2>{test}</h2>
+<h2>{"test"}</h2>
