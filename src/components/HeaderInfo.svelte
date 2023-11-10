@@ -1,5 +1,5 @@
 <script>
-	import {words,test} from './Store';
+	import {words,isCartOpen} from './Store';
 import { createClient } from "@supabase/supabase-js";
 	import {onMount} from 'svelte';
 	const supabaseUrl = "https://upabdmzybbgsnbonhgmc.supabase.co";
@@ -14,11 +14,14 @@ import { createClient } from "@supabase/supabase-js";
 		.from("ord")
 		.select("*")
 		//.eq("id", productid);
-		words.set(data);
-        test.set(test.get()+1);
-		console.log(test.get())
+		console.log(data)
+		words.set([12,9]);
 	});
 </script>
 
-
-<h2>{"test"}</h2>
+<div>
+	{#if $isCartOpen}
+	<strong>...</strong>
+	{/if}
+	<h2>{$words.length}</h2>
+</div>

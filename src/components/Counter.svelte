@@ -2,8 +2,7 @@
 	import { quintOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-	import {words} from './Store';
-	import {test} from './Store';
+	import {words,isCartOpen,ffs } from './Store';
 	''
 	const [send, receive] = crossfade({
 		fallback(node, params) {
@@ -38,6 +37,7 @@
 			done: false,
 			description: input.value
 		};
+isCartOpen.set(!$isCartOpen);
 
 		todos = [todo, ...todos];
 		input.value = '';
@@ -45,6 +45,9 @@
 
 	function remove(todo) {
 		todos = todos.filter((t) => t !== todo);
+		words.set([1,2])
+		console.log($words)
+		ffs.set("aaaahhh")
 	}
 </script>
 
@@ -54,7 +57,7 @@
 		placeholder="what needs to be done?"
 		on:keydown={(event) => event.key === 'Enter' && add(event.target)}
 	/>
-<h1>{test.get()}</h1>
+<h1>{" "+$ffs+" "+$words.length}</h1>
 	<div class="left">
 		<h2>todo</h2>
 		{#each todos.filter((t) => !t.done) as todo (todo.id)}
@@ -65,7 +68,9 @@
 			</label>
 		{/each}
 	</div>
-
+	{#if $isCartOpen}
+	<strong>...</strong>
+	{/if}
 	<div class="right">
 		<h2>done</h2>
 		{#each todos.filter((t) => t.done) as todo (todo.id)}
