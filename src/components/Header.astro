@@ -1,11 +1,11 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import HeaderInfo from '/HeaderInfo.svelte';
+import HeaderInfo from './HeaderInfo.svelte';
 ---
 
 <header>
 	<nav>
-		<HeaderInfo client:visible></HeaderInfo>    
+		<HeaderInfo client:visible></HeaderInfo> 
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
