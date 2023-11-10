@@ -1,5 +1,5 @@
 <script>
-	import {words} from './Store';
+	import {words,test} from './Store';
 import { createClient } from "@supabase/supabase-js";
 	import {onMount} from 'svelte';
 	const supabaseUrl = "https://upabdmzybbgsnbonhgmc.supabase.co";
@@ -15,7 +15,8 @@ import { createClient } from "@supabase/supabase-js";
 		.select("*")
 		//.eq("id", productid);
 		words.set(data);
-        
+        test.set(test.get()+1);
+		console.log(test.get())
 	});
 </script>
 

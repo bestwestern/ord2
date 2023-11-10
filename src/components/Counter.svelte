@@ -3,6 +3,7 @@
 	import { crossfade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	import {words} from './Store';
+	import {test} from './Store';
 	''
 	const [send, receive] = crossfade({
 		fallback(node, params) {
@@ -19,7 +20,7 @@
 			};
 		}
 	});
-console.log(words)
+
 	let todos = [
 		{ id: 1, done: false, description: 'write some docs' },
 		{ id: 2, done: false, description: 'start writing JSConf talk' },
@@ -53,7 +54,7 @@ console.log(words)
 		placeholder="what needs to be done?"
 		on:keydown={(event) => event.key === 'Enter' && add(event.target)}
 	/>
-
+<h1>{test.get()}</h1>
 	<div class="left">
 		<h2>todo</h2>
 		{#each todos.filter((t) => !t.done) as todo (todo.id)}
